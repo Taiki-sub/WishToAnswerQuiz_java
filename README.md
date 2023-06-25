@@ -3,7 +3,15 @@
 迷路を解きながら、クイズを考える忙しいゲームになっています
 
 # DEMO
+**タイトル画面**
+
 ![スクリーンショット 2023-06-26 002044](https://github.com/Taiki-sub/WishToAnswerQuiz_java/assets/136961174/6389c7fe-8167-4bf0-9f60-227b12a572fa)
+
+**遊び方画面**
+![スクリーンショット 2023-06-26 002104](https://github.com/Taiki-sub/WishToAnswerQuiz_java/assets/136961174/c2a5101b-412b-4312-abce-cedd64de413a)
+
+**ゲーム画面**
+![スクリーンショット 2023-06-26 002127](https://github.com/Taiki-sub/WishToAnswerQuiz_java/assets/136961174/55aa6b76-a1e5-4d86-a142-95432330f1c4)
 
 
 
