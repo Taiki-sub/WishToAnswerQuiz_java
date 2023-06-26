@@ -25,58 +25,58 @@ import java.util.TimerTask;
 
 public class MainWindow extends JFrame{
     public static final long serialVersionUID = 1L;
-    //ƒtƒB[ƒ‹ƒh
+    //ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
     ScreenMode screenMode = ScreenMode.TITLE;
-    //’è”
+    //å®šæ•°
     final int WIDTH = 3000;
     final int HEIGHT = 2000;
-    //ƒŒƒCƒAƒEƒgi†Å‹‚Ì‚æ‚¤‚Èİ’è—pj
+    //ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆï¼ˆç´™èŠå±…ã®ã‚ˆã†ãªè¨­å®šç”¨ï¼‰
     CardLayout layout = new CardLayout();
-    //ƒRƒ“ƒ|[ƒlƒ“ƒg
+    //ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
     TitlePanel titlePanel;
     GamePanel gamePanel;
     RulePanel rulePanel;
     WinnerPanel winnerPanel;
     LoserPanel loserPanel;
 
-    //ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+    //ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
     MainWindow(){
-        //ƒEƒBƒ“ƒhƒE¶ã‚ÌƒAƒCƒRƒ“‚Æƒ^ƒCƒgƒ‹
-        this.setTitle("ƒ^ƒCƒgƒ‹‚ğİ’è");
+        //ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦å·¦ä¸Šã®ã‚¢ã‚¤ã‚³ãƒ³ã¨ã‚¿ã‚¤ãƒˆãƒ«
+        this.setTitle("ã‚¿ã‚¤ãƒˆãƒ«ã‚’è¨­å®š");
         ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("win.jpg"));
         this.setIconImage(icon.getImage());
 
-        //‚¢‚Â‚à‚Ì
+        //ã„ã¤ã‚‚ã®
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setResizable(false);//‰æ–ÊƒTƒCƒY‚Ì•ÏX‹Ö~
-        this.getContentPane().setBackground(Color.green);//”wŒi‚ÌF‚ğİ’è
-        this.setLayout(layout);//†Å‹‚Ì‚æ‚¤‚Éİ’è
-        this.setPreferredSize(new Dimension(WIDTH,HEIGHT));//ƒTƒCƒYİ’è
-        this.pack();//©“®ƒTƒCƒY’²®i‚±‚ê‚ª‚È‚¢‚Æ•Ï‚ÈƒTƒCƒY‚É‚È‚éj
-        this.setLocationRelativeTo(null);//‹N“®‚ÌƒXƒNƒŠ[ƒ“‚ÌˆÊ’u‚ğ’†S‚Éipack‚æ‚èŒã‚ÅŒÄ‚Ôj
-        // this.setLocation(450,450)  Ú×‚Éİ’è‚·‚éê‡
+        this.setResizable(true);
+        this.getContentPane().setBackground(Color.green);//èƒŒæ™¯ã®è‰²ã‚’è¨­å®š
+        this.setLayout(layout);//ç´™èŠå±…ã®ã‚ˆã†ã«è¨­å®š
+        this.setPreferredSize(new Dimension(WIDTH,HEIGHT));//ã‚µã‚¤ã‚ºè¨­å®š
+        this.pack();//è‡ªå‹•ã‚µã‚¤ã‚ºèª¿æ•´ï¼ˆã“ã‚ŒãŒãªã„ã¨å¤‰ãªã‚µã‚¤ã‚ºã«ãªã‚‹ï¼‰
+        this.setLocationRelativeTo(null);//èµ·å‹•æ™‚ã®ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã®ä½ç½®ã‚’ä¸­å¿ƒã«ï¼ˆpackã‚ˆã‚Šå¾Œã§å‘¼ã¶ï¼‰
+        // this.setLocation(450,450)  è©³ç´°ã«è¨­å®šã™ã‚‹å ´åˆ
        
     }
 
-    //ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ªŒÄ‚Î‚ê‚½Œã‚ÌƒƒCƒ“ƒƒ\ƒbƒh‚©‚çÅ‰‚Éè“®‚ÅŒÄ‚Ño‚·
+    //ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãŒå‘¼ã°ã‚ŒãŸå¾Œã®ãƒ¡ã‚¤ãƒ³ãƒ¡ã‚½ãƒƒãƒ‰ã‹ã‚‰æœ€åˆã«æ‰‹å‹•ã§å‘¼ã³å‡ºã™
     public void preparePanels(){
-        //ƒpƒlƒ‹‚Ì€”õ
+        //ãƒ‘ãƒãƒ«ã®æº–å‚™
         gamePanel = new GamePanel();
-        this.add(gamePanel,"ƒQ[ƒ€‰æ–Ê");
+        this.add(gamePanel,"ã‚²ãƒ¼ãƒ ç”»é¢");
         titlePanel = new TitlePanel(gamePanel);
-        this.add(titlePanel,"ƒ^ƒCƒgƒ‹‰æ–Ê");
+        this.add(titlePanel,"ã‚¿ã‚¤ãƒˆãƒ«ç”»é¢");
         this.pack();
         rulePanel = new RulePanel(gamePanel);
-        this.add(rulePanel,"ƒ‹[ƒ‹‰æ–Ê");
+        this.add(rulePanel,"ãƒ«ãƒ¼ãƒ«ç”»é¢");
         winnerPanel = new WinnerPanel(gamePanel);
-        this.add(winnerPanel,"Ÿ—˜‰æ–Ê");
+        this.add(winnerPanel,"å‹åˆ©ç”»é¢");
         loserPanel = new LoserPanel(gamePanel);
-        this.add(loserPanel,"”s–k‰æ–Ê");
+        this.add(loserPanel,"æ•—åŒ—ç”»é¢");
         this.pack();
 
     }
 
-    //preparePanels()‚ªŒÄ‚Î‚ê‚½‚ ‚ÆŒãAƒƒCƒ“ƒƒ\ƒbƒh‚©‚ç‚³‚ç‚É©“®‚ÅŒÄ‚Ño‚·
+    //preparePanels()ãŒå‘¼ã°ã‚ŒãŸã‚ã¨å¾Œã€ãƒ¡ã‚¤ãƒ³ãƒ¡ã‚½ãƒƒãƒ‰ã‹ã‚‰ã•ã‚‰ã«è‡ªå‹•ã§å‘¼ã³å‡ºã™
     public void prepareComponets(){
         titlePanel.prepareComponets();
         gamePanel.prepareComponets();
@@ -85,30 +85,30 @@ public class MainWindow extends JFrame{
         loserPanel.prepareComponets();
     }
 
-    //ƒXƒNƒŠ[ƒ“ƒ‚[ƒh‚ğØ‚è‘Ö‚¦‚é
-    //ƒƒCƒ“ƒƒ\ƒbƒh‚©‚çÅŒã‚Éè“®‚ÅŒÄ‚Ño‚·
+    //ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ãƒ¢ãƒ¼ãƒ‰ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
+    //ãƒ¡ã‚¤ãƒ³ãƒ¡ã‚½ãƒƒãƒ‰ã‹ã‚‰æœ€å¾Œã«æ‰‹å‹•ã§å‘¼ã³å‡ºã™
     public void setFrontScreenAndFocus(ScreenMode s){
         screenMode = s;
-        //•\¦‚³‚ê‚é‰æ–Ê‚Ìİ’è
+        //è¡¨ç¤ºã•ã‚Œã‚‹ç”»é¢ã®è¨­å®š
         switch(screenMode){
             case TITLE:
-                layout.show(this.getContentPane(),"ƒ^ƒCƒgƒ‹‰æ–Ê");
+                layout.show(this.getContentPane(),"ã‚¿ã‚¤ãƒˆãƒ«ç”»é¢");
                 titlePanel.requestFocus();
                 break;
             case GAME:
-                layout.show(this.getContentPane(),"ƒQ[ƒ€‰æ–Ê");
+                layout.show(this.getContentPane(),"ã‚²ãƒ¼ãƒ ç”»é¢");
                 gamePanel.requestFocus();
                 break;
             case RULE:
-                layout.show(this.getContentPane(),"ƒ‹[ƒ‹‰æ–Ê");
+                layout.show(this.getContentPane(),"ãƒ«ãƒ¼ãƒ«ç”»é¢");
                 rulePanel.requestFocus();
                 break;
             case WINNER:
-                layout.show(this.getContentPane(),"Ÿ—˜‰æ–Ê");
+                layout.show(this.getContentPane(),"å‹åˆ©ç”»é¢");
                 winnerPanel.requestFocus();
                 break;
             case LOSER:
-                layout.show(this.getContentPane(),"”s–k‰æ–Ê");
+                layout.show(this.getContentPane(),"æ•—åŒ—ç”»é¢");
                 loserPanel.requestFocus();
                 break;
         }
